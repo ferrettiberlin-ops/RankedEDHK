@@ -1,0 +1,113 @@
+BODY {
+	margin: 20px 0px 20px 0px;
+	background-color: #4F0080;
+	font-family: arial;
+	font-size: 12pt;
+	}
+	
+.page{
+	display: block;
+	width: 1000px;
+	min-height: 800px;
+	overflow: auto;
+	margin: 0px auto 0px auto;
+	box-sizing: border-box;
+	}
+	
+.pageHeader{
+	background-color: #FFC9FF;
+	float: left;
+	clear: none;
+	min-height: 150px;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	}
+	
+.pageHeaderRight    {
+    background-color: #FFC9FF;
+    float: right;
+    clear: none;
+    min-height: 150px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    }
+
+.pageLeftPanel{
+	background-color: #9d929d;
+	float: left;
+	clear: none;
+	min-height: 600px;
+	width: 200px;
+	box-sizing: border-box;
+	padding: 10px; 
+    height: 50vh;
+	}
+
+.pageContent{
+	background-color: #f6f3f3;
+	float: left;
+	clear: none;
+	min-height: 600px;
+	width: 800px;
+	box-sizing: border-box;
+	padding: 10px;
+	}
+	
+.pageFooter{
+	background-color: #6b656e;
+	float: left;
+	clear: none;
+	min-height: 50px;
+	width: 100%;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 10px;
+	}
+
+
+.button1 {width: 150px;}
+.button2 {width: 50%;}
+.button3 {width: 100%;}
+
+
+.left-position {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px; /* This property doesn’t do much with relative positioning */
+}
+
+.right-position {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 0px; /* This property doesn’t do much with relative positioning */
+}
+
+.btn-group button {
+  background-color: #39403e; /* grey background */
+  border: 1px solid #39403e; /* white border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #6f8a70;
+}
+
+.Content {
+    overflow: auto;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
