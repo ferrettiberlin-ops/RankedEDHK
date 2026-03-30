@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import { checkGradeConsistency } from './gemini';
+import { checkGradeConsistencyHF } from './hf-moderation';
 
 export interface ReviewSubmission {
   programId: string;
@@ -27,10 +27,10 @@ export async function submitReview(review: ReviewSubmission) {
 
   // Check consistency of each grade with its text
   const [compConsistent, socialConsistent, careerConsistent, teachingConsistent] = await Promise.all([
-    checkGradeConsistency(review.competitiveness, review.competitionText),
-    checkGradeConsistency(review.socialOpportunities, review.socialText),
-    checkGradeConsistency(review.careerOpportunities, review.careerText),
-    checkGradeConsistency(review.teachingQuality, review.teachingText),
+    checkGradeConsistencyHF(review.competitiveness, review.competitionText),
+    checkGradeConsistencyHF(review.socialOpportunities, review.socialText),
+    checkGradeConsistencyHF(review.careerOpportunities, review.careerText),
+    checkGradeConsistencyHF(review.teachingQuality, review.teachingText),
   ]);
 
   // Insert review into Supabase

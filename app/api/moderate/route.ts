@@ -1,11 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { moderateContent, checkGradeConsistency } from '@/lib/gemini';
+import { moderateContentHF, checkGradeConsistencyHF } from '@/lib/hf-moderation';
 
+/**
+ * Moderation API Route
+ * Validates review content and grade consistency using Hugging Face Inference API
+ * 
+ * POST /api/moderate
+ * Body: { text: string, grade: string (A-F) }
+ * Response: { approved: boolean, gradeValid?: boolean, message: string }
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { text, grade } = body;
 
+    // Validate input
     if (!text || typeof text !== 'string') {
       return NextResponse.json(
         { error: 'Invalid request. Text is required.' },
@@ -20,8 +29,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Step 1: Moderate content for harmful material
-    const moderationResult = await moderateContent(text);
+    // Step 1: Moderate content for harmful/unsafe material
+    const moderationResult = await moderateContentHF(text);
 
     if (!moderationResult.isApproved) {
       return NextResponse.json({
@@ -37,7 +46,7 @@ export async function POST(request: NextRequest) {
     let consistencyReasoning = '';
 
     if (grade && /^[A-F]$/.test(grade)) {
-      const consistencyCheck = await checkGradeConsistency(grade, text);
+      const consistencyCheck = await checkGradeConsistencyHF(grade, text);
       gradeValid = consistencyCheck.isConsistent;
       consistencyReasoning = consistencyCheck.reasoning;
     }
@@ -53,7 +62,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Moderation API error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error during moderation' },
       { status: 500 }
     );
   }
