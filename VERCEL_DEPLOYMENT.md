@@ -74,14 +74,14 @@ Environments: Production, Preview, Development
 #### Variable 2: Supabase Anon Key
 ```
 Name: NEXT_PUBLIC_SUPABASE_ANON_KEY
-Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdiaXRhdGtneXRtbHducXpjeGNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NzgxNzAsImV4cCI6MjA5MDQ1NDE3MH0.q8kHOCjmY3FOvsfn9uuTZ8y7EMy_1_gcGPu84QCwSWg
+Value: [your-supabase-anon-key-from-project-settings]
 Environments: Production, Preview, Development
 ```
 
 #### Variable 3: Supabase Service Role Key (PRODUCTION ONLY!)
 ```
 Name: SUPABASE_SERVICE_ROLE_KEY
-Value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdiaXRhdGtneXRtbHducXpjeGNnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDg3ODE3MCwiZXhwIjoyMDkwNDU0MTcwfQ.h7NGJHe0QrgglNpQHMG_dUeCQtiRkrkTilC1ptaXyBo
+Value: [your-supabase-service-role-key-from-project-settings]
 Environments: PRODUCTION ONLY ⚠️ (uncheck Preview & Development)
 ```
 
