@@ -1,22 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import ReviewForm from './ReviewForm';
 import ReviewList from './ReviewList';
 import ProgramDetails from './ProgramDetails';
 
 interface MainContentProps {
-  selectedUniversity: string | null;
   selectedProgram: string | null;
-  isLoading: boolean;
-  setIsLoading: (loading: boolean) => void;
 }
 
 export default function MainContent({
-  selectedUniversity,
   selectedProgram,
-  isLoading,
-  setIsLoading,
 }: MainContentProps) {
   return (
     <div className="p-8 max-w-4xl">

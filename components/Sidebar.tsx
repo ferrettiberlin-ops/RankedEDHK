@@ -1,12 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getUniversities, getProgramsByUniversity } from '@/lib/supabase';
+import { getProgramsByUniversity } from '@/lib/supabase';
 
 interface SidebarProps {
   onUniversitySelect: (university: string | null) => void;
   onProgramSelect: (program: string | null) => void;
-  selectedUniversity: string | null;
   selectedProgram: string | null;
 }
 
@@ -26,7 +25,6 @@ interface Program {
 export default function Sidebar({
   onUniversitySelect,
   onProgramSelect,
-  selectedUniversity,
   selectedProgram,
 }: SidebarProps) {
   const [universities, setUniversities] = useState<University[]>([]);

@@ -1,4 +1,11 @@
-import { auth } from "@/lib/auth";
-import { toNextJsHandler } from "better-auth/next-js";
+/**
+ * Auth API routes (placeholder)
+ * TODO: Implement authentication with Better-Auth or similar
+ */
+export async function GET() {
+  return new Response("Not implemented", { status: 501 });
+}
 
-export const { GET, POST } = toNextJsHandler(auth);
+export async function POST() {
+  return new Response("Not implemented", { status: 501 });
+}

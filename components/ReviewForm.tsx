@@ -8,6 +8,14 @@ interface ReviewFormProps {
   programId: string;
 }
 
+interface SubmitReviewResult {
+  competitiveness_grade_valid?: boolean;
+  social_grade_valid?: boolean;
+  career_grade_valid?: boolean;
+  teaching_grade_valid?: boolean;
+  [key: string]: any;
+}
+
 const GRADE_OPTIONS = ['A', 'B', 'C', 'D', 'F'];
 
 export default function ReviewForm({ programId }: ReviewFormProps) {
@@ -50,7 +58,7 @@ export default function ReviewForm({ programId }: ReviewFormProps) {
     setMessage(null);
 
     try {
-      const result = await submitReview({
+      const result: SubmitReviewResult = await submitReview({
         programId,
         competitiveness: formData.competitiveness,
         competitionText: formData.competitionText,
