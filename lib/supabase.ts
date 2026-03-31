@@ -1,13 +1,27 @@
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// Use NEXT_PUBLIC_ANON_KEY (matches .env.local) for the public anon key
+const supabaseAnonKey = process.env.NEXT_PUBLIC_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase environment variables');
+  console.error(
+    'Missing Supabase credentials. Please fill in NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local'
+  );
+  // Create a dummy client for development to prevent crashes
+  // Real operations will fail, but app will load
+  if (typeof window === 'undefined') {
+    // Server-side: throw error to catch at build time
+    throw new Error(
+      'Missing Supabase environment variables. Fill in .env.local with your Supabase project credentials (from Settings → API)'
+    );
+  }
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(
+  supabaseUrl || 'https://placeholder.supabase.co',
+  supabaseAnonKey || 'placeholder'
+);
 
 // University functions
 export async function getUniversities() {

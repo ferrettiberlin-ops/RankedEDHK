@@ -4,13 +4,15 @@
  */
 
 export const HK_UNIVERSITY_DOMAINS = [
-  "connect.polyu.hk",
-  "link.cuhk.edu.hk",
-  "student.ouhk.edu.hk",
-  "student.hkust.edu.hk",
-  "student.hku.hk",
-  "student.cityu.edu.hk",
-  "student.eduhk.hk",
+  "@connect.hku.hk",
+  "@link.cuhk.edu.hk",
+  "@connect.ust.hk",
+  "@connect.polyu.hk",
+  "@my.cityu.edu.hk",
+  "@life.hkbu.edu.hk",
+  "@s.eduhk.hk",
+  "@live.hkmu.edu.hk",
+  "@ln.hk",
 ];
 
 export function validateUniversityEmail(email: string): boolean {

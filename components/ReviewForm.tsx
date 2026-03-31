@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import RiskWarningModal from './RiskWarningModal';
-import { submitReview } from '@/lib/reviews';
 
 interface ReviewFormProps {
   programId: string;
@@ -58,18 +57,28 @@ export default function ReviewForm({ programId }: ReviewFormProps) {
     setMessage(null);
 
     try {
-      const result: SubmitReviewResult = await submitReview({
-        programId,
-        competitiveness: formData.competitiveness,
-        competitionText: formData.competitionText,
-        socialOpportunities: formData.socialOpportunities,
-        socialText: formData.socialText,
-        careerOpportunities: formData.careerOpportunities,
-        careerText: formData.careerText,
-        teachingQuality: formData.teachingQuality,
-        teachingText: formData.teachingText,
-        yearOfStudy: parseInt(formData.yearOfStudy),
+      const response = await fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          programId,
+          competitiveness: formData.competitiveness,
+          competitionText: formData.competitionText,
+          socialOpportunities: formData.socialOpportunities,
+          socialText: formData.socialText,
+          careerOpportunities: formData.careerOpportunities,
+          careerText: formData.careerText,
+          teachingQuality: formData.teachingQuality,
+          teachingText: formData.teachingText,
+          yearOfStudy: parseInt(formData.yearOfStudy),
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit review');
+      }
+
+      const result: SubmitReviewResult = await response.json();
 
       // Check if any grades were invalidated
       const invalidGrades = [];

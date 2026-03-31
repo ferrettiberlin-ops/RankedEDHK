@@ -17,3 +17,6 @@ coverage/
 .vscode/
 *.swp
 *.swo
+.env
+*.key
+*.pem

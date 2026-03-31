@@ -1,0 +1,22 @@
+[
+  {
+    "email": "test+ci123462@example.com",
+    "university": "hku",
+    "program": "Computer Science",
+    "year_of_study": 3,
+    "competitiveness": "B",
+    "competition_text": "Testing cs program",
+    "social": "B",
+    "social_text": "Good social life",
+    "career": "B",
+    "career_text": "Decent career prospects",
+    "teaching": "B",
+    "teaching_text": "Solid teaching",
+    "competitiveness_grade_valid": true,
+    "social_grade_valid": true,
+    "career_grade_valid": true,
+    "teaching_grade_valid": true,
+    "moderation_status": "approved",
+    "created_at": "2026-03-31T02:16:16.414Z"
+  }
+]
